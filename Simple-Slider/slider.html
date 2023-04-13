@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P3(Slider)</title>
+    <style>
+      #container {
+        width: 100%;
+        height: 30rem;
+        display: flex;
+      }
+      #slider-shape {
+        position: absolute;
+        margin: 5rem 10% 5rem 10%;
+        width: 80%;
+        height: 20rem;
+        overflow: hidden;
+        border-radius: 1rem;
+      }
+      img {
+        position: absolute;
+        width: 100%;
+        height: 20rem;
+        object-position: center;
+        object-fit: cover;
+      }
+      span {
+        left: 5%;
+        position: relative;
+        top: 12rem;
+        width: 5%;
+        height: 5rem;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      #next {
+        left: 86%;
+      }
+      span img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        border-radius: 50%;
+      }
+      span img:hover {
+        background-color: rgb(180, 180, 180);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <span id="previous">
+        <img src="previous.png" />
+      </span>
+      <div id="slider-shape">
+        <img src="1.jpg" id="slider-img" />
+      </div>
+      <span id="next"><img src="next.png" /></span>
+    </div>
+  </body>
+  <script>
+    var slider = document.getElementById("slider-img");
+    var i = 1;
+    var autoplay = setInterval(Next, 3000);
+    document.getElementById("next").addEventListener("click", function () {
+      Next(true);
+    });
+    function Next(handed = false) {
+      if (i !== 5) {
+        i++;
+        slider.src = i + ".jpg";
+      } else {
+        i = 1;
+        slider.src = i + ".jpg";
+      }
+      if (handed == true) {
+        clearInterval(autoplay);
+        autoplay = setInterval(Next, 3000);
+      }
+    }
+    document.getElementById("previous").addEventListener("click", function () {
+      Previous(true);
+    });
+    function Previous(handed) {
+      if (i !== 1) {
+        i--;
+        slider.src = i + ".jpg";
+      } else {
+        i = 5;
+        slider.src = i + ".jpg";
+      }
+      if (handed == true) {
+        clearInterval(autoplay);
+        autoplay = setInterval(Next, 3000);
+      }
+    }
+  </script>
+</html>
