@@ -1,0 +1,23 @@
+body { 
+    margin: 0;
+    padding: 0;
+}
+header {
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+}
+.navbar {
+    width: 99%;
+    height: 100%;
+    background: lightblue;
+    max-height: 5rem;
+    transition: height 0.2s;
+}
+.navborder {
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+section {
+    height: 300rem;
+}
